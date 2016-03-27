@@ -1,0 +1,6 @@
+platform :ios, ‘7.0’
+use_frameworks!
+
+target ‘DailyTreasure’ do
+pod 'AFNetworking', '~> 3.0.2'
+end

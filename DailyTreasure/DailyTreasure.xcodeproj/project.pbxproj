@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BED77341CC925EA00770074 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BED772F1CC925EA00770074 /* UIView+Extension.m */; };
+		3BED77351CC925EA00770074 /* YzHttpOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BED77321CC925EA00770074 /* YzHttpOperation.m */; };
 		3BEF37121CA5826800DF219F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF37111CA5826800DF219F /* main.m */; };
-		3BEF37151CA5826800DF219F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF37141CA5826800DF219F /* AppDelegate.m */; };
-		3BEF37181CA5826800DF219F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF37171CA5826800DF219F /* ViewController.m */; };
+		3BEF37151CA5826800DF219F /* YzAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF37141CA5826800DF219F /* YzAppDelegate.m */; };
 		3BEF371B1CA5826800DF219F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BEF37191CA5826800DF219F /* Main.storyboard */; };
 		3BEF371D1CA5826800DF219F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BEF371C1CA5826800DF219F /* Assets.xcassets */; };
 		3BEF37201CA5826800DF219F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BEF371E1CA5826800DF219F /* LaunchScreen.storyboard */; };
@@ -36,12 +37,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3BED772E1CC925EA00770074 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		3BED772F1CC925EA00770074 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		3BED77311CC925EA00770074 /* YzHttpOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzHttpOperation.h; sourceTree = "<group>"; };
+		3BED77321CC925EA00770074 /* YzHttpOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YzHttpOperation.m; sourceTree = "<group>"; };
+		3BED77331CC925EA00770074 /* YzPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzPrefixHeader.pch; sourceTree = "<group>"; };
 		3BEF370D1CA5826800DF219F /* DailyTreasure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyTreasure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BEF37111CA5826800DF219F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3BEF37131CA5826800DF219F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		3BEF37141CA5826800DF219F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3BEF37161CA5826800DF219F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3BEF37171CA5826800DF219F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3BEF37131CA5826800DF219F /* YzAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YzAppDelegate.h; sourceTree = "<group>"; };
+		3BEF37141CA5826800DF219F /* YzAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YzAppDelegate.m; sourceTree = "<group>"; };
 		3BEF371A1CA5826800DF219F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3BEF371C1CA5826800DF219F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BEF371F1CA5826800DF219F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -83,6 +87,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B9E11A41CB25F2300A66AC7 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				3BED77361CCB6D0300770074 /* Main */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		3B9E11A61CB25F2300A66AC7 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		3BED772C1CC925EA00770074 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3BED772D1CC925EA00770074 /* Category */,
+				3BED77301CC925EA00770074 /* Http */,
+				3BED77331CC925EA00770074 /* YzPrefixHeader.pch */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		3BED772D1CC925EA00770074 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				3BED772E1CC925EA00770074 /* UIView+Extension.h */,
+				3BED772F1CC925EA00770074 /* UIView+Extension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		3BED77301CC925EA00770074 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				3BED77311CC925EA00770074 /* YzHttpOperation.h */,
+				3BED77321CC925EA00770074 /* YzHttpOperation.m */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		3BED77361CCB6D0300770074 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		3BEF37041CA5826800DF219F = {
 			isa = PBXGroup;
 			children = (
@@ -108,14 +162,9 @@
 		3BEF370F1CA5826800DF219F /* DailyTreasure */ = {
 			isa = PBXGroup;
 			children = (
-				3BEF37131CA5826800DF219F /* AppDelegate.h */,
-				3BEF37141CA5826800DF219F /* AppDelegate.m */,
-				3BEF37161CA5826800DF219F /* ViewController.h */,
-				3BEF37171CA5826800DF219F /* ViewController.m */,
-				3BEF37191CA5826800DF219F /* Main.storyboard */,
-				3BEF371C1CA5826800DF219F /* Assets.xcassets */,
-				3BEF371E1CA5826800DF219F /* LaunchScreen.storyboard */,
-				3BEF37211CA5826800DF219F /* Info.plist */,
+				3B9E11A41CB25F2300A66AC7 /* Class */,
+				3BED772C1CC925EA00770074 /* Common */,
+				3B9E11A61CB25F2300A66AC7 /* Tools */,
 				3BEF37101CA5826800DF219F /* Supporting Files */,
 			);
 			path = DailyTreasure;
@@ -124,6 +173,12 @@
 		3BEF37101CA5826800DF219F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3BEF37131CA5826800DF219F /* YzAppDelegate.h */,
+				3BEF37141CA5826800DF219F /* YzAppDelegate.m */,
+				3BEF37191CA5826800DF219F /* Main.storyboard */,
+				3BEF371C1CA5826800DF219F /* Assets.xcassets */,
+				3BEF371E1CA5826800DF219F /* LaunchScreen.storyboard */,
+				3BEF37211CA5826800DF219F /* Info.plist */,
 				3BEF37111CA5826800DF219F /* main.m */,
 			);
 			name = "Supporting Files";
@@ -345,8 +400,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BEF37181CA5826800DF219F /* ViewController.m in Sources */,
-				3BEF37151CA5826800DF219F /* AppDelegate.m in Sources */,
+				3BED77351CC925EA00770074 /* YzHttpOperation.m in Sources */,
+				3BED77341CC925EA00770074 /* UIView+Extension.m in Sources */,
+				3BEF37151CA5826800DF219F /* YzAppDelegate.m in Sources */,
 				3BEF37121CA5826800DF219F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,6 +545,8 @@
 			baseConfigurationReference = B3BF35B3D1AD900B60049D3D /* Pods-DailyTreasure.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/DailyTreasure/Common/YzPrefixHeader.pch";
 				INFOPLIST_FILE = DailyTreasure/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Yz.DailyTreasure;
@@ -501,6 +559,8 @@
 			baseConfigurationReference = 4F1EF17DA6E9860018A1A868 /* Pods-DailyTreasure.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/DailyTreasure/Common/YzPrefixHeader.pch";
 				INFOPLIST_FILE = DailyTreasure/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Yz.DailyTreasure;

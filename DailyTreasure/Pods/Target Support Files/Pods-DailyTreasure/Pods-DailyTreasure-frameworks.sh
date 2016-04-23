@@ -85,7 +85,13 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-DailyTreasure/AFNetworking.framework"
+  install_framework "Pods-DailyTreasure/ReactiveCocoa.framework"
+  install_framework "Pods-DailyTreasure/Result.framework"
+  install_framework "Pods-DailyTreasure/SDWebImage.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-DailyTreasure/AFNetworking.framework"
+  install_framework "Pods-DailyTreasure/ReactiveCocoa.framework"
+  install_framework "Pods-DailyTreasure/Result.framework"
+  install_framework "Pods-DailyTreasure/SDWebImage.framework"
 fi

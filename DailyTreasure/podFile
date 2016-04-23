@@ -1,6 +1,8 @@
-platform :ios, ‘7.0’
+platform :ios, ‘8.0’
 use_frameworks!
 
 target ‘DailyTreasure’ do
 pod 'AFNetworking', '~> 3.0.2'
+pod 'SDWebImage', '~> 3.7.5'
+pod 'ReactiveCocoa', '~> 4.0.4-alpha-4', :inhibit_warnings => true
 end

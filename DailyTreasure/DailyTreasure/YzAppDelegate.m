@@ -7,8 +7,13 @@
 //
 
 #import "YzAppDelegate.h"
-
+#import "YzDrawerViewController.h"
+#import "YzHomeViewController.h"
+#import "YzLeftViewController.h"
 @interface YzAppDelegate ()
+
+@property(nonatomic, strong) UIImageView *launchBackImageView;
+@property(nonatomic, strong) UIImageView *launchFontImageView;
 
 @end
 
@@ -17,7 +22,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:kScreenBounds];
+    [self.window makeKeyAndVisible];
+    YzHomeViewController *homeViewController = [[YzHomeViewController alloc] init];
+    YzLeftViewController *leftViewController = [[YzLeftViewController alloc] init];
+    UINavigationController *narigation = [[UINavigationController alloc] initWithRootViewController:[YzDrawerViewController creatDrawerViewControllerWithHomeViewController:homeViewController leftViewController:leftViewController]];
+    self.window.rootViewController = narigation;
     
+    
+    [self setLauchView];
 
     return YES;
 }
@@ -43,5 +56,27 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+- (void)setLauchView {
+    self.launchFontImageView = [[UIImageView alloc] initWithFrame:kScreenBounds];
+    [self.window addSubview:self.launchFontImageView];
+    
+    self.launchBackImageView = [[UIImageView alloc] initWithFrame:kScreenBounds];
+    self.launchBackImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Default@2x" ofType:@"png"]];
+    [self.window addSubview:self.launchBackImageView];
+    
+    [YzHttpOperation getRequestWithURL:kLaunchImageURL parameters:nil success:^(id responseObject) {
+        [_launchFontImageView sd_setImageWithURL:[NSURL URLWithString:responseObject[@"img"]]];
+        [UIView animateWithDuration:2.5f animations:^{
+            self.launchBackImageView.alpha = 0.f;
+            self.launchFontImageView.transform = CGAffineTransformMakeScale(1.2, 1.2);
+        } completion:^(BOOL finished) {
+            [self.launchBackImageView removeFromSuperview];
+            [self.launchFontImageView removeFromSuperview];
+        }];
+    } failure:nil];
+}
+
 
 @end

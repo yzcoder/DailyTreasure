@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B81A69A1CCCD60A000AE377 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B81A6991CCCD60A000AE377 /* Default@2x.png */; };
 		3BED77341CC925EA00770074 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BED772F1CC925EA00770074 /* UIView+Extension.m */; };
 		3BED77351CC925EA00770074 /* YzHttpOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BED77321CC925EA00770074 /* YzHttpOperation.m */; };
+		3BED77391CCB78DB00770074 /* YzDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BED77381CCB78DB00770074 /* YzDrawerViewController.m */; };
+		3BED773D1CCB7B2600770074 /* YzHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BED773B1CCB7B2600770074 /* YzHomeViewController.m */; };
+		3BED773E1CCB7B2600770074 /* YzHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BED773C1CCB7B2600770074 /* YzHomeViewController.xib */; };
+		3BED77421CCB7B3A00770074 /* YzLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BED77401CCB7B3A00770074 /* YzLeftViewController.m */; };
+		3BED77431CCB7B3A00770074 /* YzLeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BED77411CCB7B3A00770074 /* YzLeftViewController.xib */; };
 		3BEF37121CA5826800DF219F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF37111CA5826800DF219F /* main.m */; };
 		3BEF37151CA5826800DF219F /* YzAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF37141CA5826800DF219F /* YzAppDelegate.m */; };
 		3BEF371B1CA5826800DF219F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BEF37191CA5826800DF219F /* Main.storyboard */; };
@@ -37,11 +43,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B81A6991CCCD60A000AE377 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		3BED772E1CC925EA00770074 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		3BED772F1CC925EA00770074 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		3BED77311CC925EA00770074 /* YzHttpOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzHttpOperation.h; sourceTree = "<group>"; };
 		3BED77321CC925EA00770074 /* YzHttpOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YzHttpOperation.m; sourceTree = "<group>"; };
 		3BED77331CC925EA00770074 /* YzPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzPrefixHeader.pch; sourceTree = "<group>"; };
+		3BED77371CCB78DB00770074 /* YzDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzDrawerViewController.h; sourceTree = "<group>"; };
+		3BED77381CCB78DB00770074 /* YzDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YzDrawerViewController.m; sourceTree = "<group>"; };
+		3BED773A1CCB7B2600770074 /* YzHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzHomeViewController.h; sourceTree = "<group>"; };
+		3BED773B1CCB7B2600770074 /* YzHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YzHomeViewController.m; sourceTree = "<group>"; };
+		3BED773C1CCB7B2600770074 /* YzHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YzHomeViewController.xib; sourceTree = "<group>"; };
+		3BED773F1CCB7B3A00770074 /* YzLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzLeftViewController.h; sourceTree = "<group>"; };
+		3BED77401CCB7B3A00770074 /* YzLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YzLeftViewController.m; sourceTree = "<group>"; };
+		3BED77411CCB7B3A00770074 /* YzLeftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YzLeftViewController.xib; sourceTree = "<group>"; };
 		3BEF370D1CA5826800DF219F /* DailyTreasure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyTreasure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BEF37111CA5826800DF219F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3BEF37131CA5826800DF219F /* YzAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YzAppDelegate.h; sourceTree = "<group>"; };
@@ -133,6 +148,14 @@
 		3BED77361CCB6D0300770074 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				3BED77371CCB78DB00770074 /* YzDrawerViewController.h */,
+				3BED77381CCB78DB00770074 /* YzDrawerViewController.m */,
+				3BED773A1CCB7B2600770074 /* YzHomeViewController.h */,
+				3BED773B1CCB7B2600770074 /* YzHomeViewController.m */,
+				3BED773C1CCB7B2600770074 /* YzHomeViewController.xib */,
+				3BED773F1CCB7B3A00770074 /* YzLeftViewController.h */,
+				3BED77401CCB7B3A00770074 /* YzLeftViewController.m */,
+				3BED77411CCB7B3A00770074 /* YzLeftViewController.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -180,6 +203,7 @@
 				3BEF371E1CA5826800DF219F /* LaunchScreen.storyboard */,
 				3BEF37211CA5826800DF219F /* Info.plist */,
 				3BEF37111CA5826800DF219F /* main.m */,
+				3B81A6991CCCD60A000AE377 /* Default@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -284,6 +308,7 @@
 		3BEF37051CA5826800DF219F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = Yz;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Yuz;
 				TargetAttributes = {
@@ -325,6 +350,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B81A69A1CCCD60A000AE377 /* Default@2x.png in Resources */,
+				3BED77431CCB7B3A00770074 /* YzLeftViewController.xib in Resources */,
+				3BED773E1CCB7B2600770074 /* YzHomeViewController.xib in Resources */,
 				3BEF37201CA5826800DF219F /* LaunchScreen.storyboard in Resources */,
 				3BEF371D1CA5826800DF219F /* Assets.xcassets in Resources */,
 				3BEF371B1CA5826800DF219F /* Main.storyboard in Resources */,
@@ -400,9 +428,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BED773D1CCB7B2600770074 /* YzHomeViewController.m in Sources */,
 				3BED77351CC925EA00770074 /* YzHttpOperation.m in Sources */,
+				3BED77391CCB78DB00770074 /* YzDrawerViewController.m in Sources */,
 				3BED77341CC925EA00770074 /* UIView+Extension.m in Sources */,
 				3BEF37151CA5826800DF219F /* YzAppDelegate.m in Sources */,
+				3BED77421CCB7B3A00770074 /* YzLeftViewController.m in Sources */,
 				3BEF37121CA5826800DF219F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -548,9 +579,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/DailyTreasure/Common/YzPrefixHeader.pch";
 				INFOPLIST_FILE = DailyTreasure/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Yz.DailyTreasure;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -562,9 +595,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/DailyTreasure/Common/YzPrefixHeader.pch";
 				INFOPLIST_FILE = DailyTreasure/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Yz.DailyTreasure;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -23,6 +23,7 @@
 #define kScreenBounds [UIScreen mainScreen].bounds
 
 #define kBaseURL @"http://news-at.zhihu.com/api/4"
+#define kLaunchImageURL @"start-image/720*1184"
 
 
 

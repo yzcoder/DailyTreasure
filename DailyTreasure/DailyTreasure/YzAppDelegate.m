@@ -28,9 +28,9 @@
     YzLeftViewController *leftViewController = [[YzLeftViewController alloc] init];
     UINavigationController *narigation = [[UINavigationController alloc] initWithRootViewController:[YzDrawerViewController creatDrawerViewControllerWithHomeViewController:homeViewController leftViewController:leftViewController]];
     self.window.rootViewController = narigation;
-    
-    
     [self setLauchView];
+    
+
 
     return YES;
 }
@@ -66,8 +66,12 @@
     self.launchBackImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Default@2x" ofType:@"png"]];
     [self.window addSubview:self.launchBackImageView];
     
-    [YzHttpOperation getRequestWithURL:kLaunchImageURL parameters:nil success:^(id responseObject) {
+    [YzHttpOperation getRequestWithURL:kGetLaunchImageURL parameters:nil success:^(id responseObject) {
         [_launchFontImageView sd_setImageWithURL:[NSURL URLWithString:responseObject[@"img"]]];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"img"] forKey:kLaunchViewImageURL];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
         [UIView animateWithDuration:2.5f animations:^{
             self.launchBackImageView.alpha = 0.f;
             self.launchFontImageView.transform = CGAffineTransformMakeScale(1.2, 1.2);
@@ -75,7 +79,18 @@
             [self.launchBackImageView removeFromSuperview];
             [self.launchFontImageView removeFromSuperview];
         }];
-    } failure:nil];
+    } failure:^(NSError * _Nonnull error) {
+        [_launchFontImageView sd_setImageWithURL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:kLaunchViewImageURL]]];
+        [UIView animateWithDuration:2.5f animations:^{
+            self.launchBackImageView.alpha = 0.f;
+            self.launchFontImageView.transform = CGAffineTransformMakeScale(1.2, 1.2);
+        } completion:^(BOOL finished) {
+            [self.launchBackImageView removeFromSuperview];
+            [self.launchFontImageView removeFromSuperview];
+        }];
+    }];
+    
+ 
 }
 
 

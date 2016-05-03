@@ -472,5 +472,5 @@ A program like ZhiHuDaily.
 # 声明
 
 以下所有 API 均由 __知乎（Zhihu.Inc）__ 提供，本人根据 https://github.com/izzyleung/ZhihuDailyPurify/wiki/知乎日报-API-分析 提供的API获取。获取与共享之行为或有侵犯知乎权益的嫌疑。若被告知需停止共享与使用，本人会及时删除此页面与整个项目。  
-请您暸解相关情况，并遵守知乎协议。
+请使用者与知乎官方了解相关情况，并遵守知乎协议。
 

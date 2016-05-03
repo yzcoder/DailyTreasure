@@ -8,7 +8,7 @@
 
 #import "YzLeftViewController.h"
 
-@interface YzLeftViewController ()
+@interface YzLeftViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @end
 
@@ -20,9 +20,34 @@
     self.view.frame = kScreenBounds;
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UITableViewDelegate & UITableViewDataSource -
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    cell.textLabel.text = @"测试";
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
 }
 
 /*

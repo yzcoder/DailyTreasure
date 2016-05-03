@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YzHomeViewController">
+            <connections>
+                <outlet property="custonNavBackiView" destination="eW9-ib-NNu" id="j8g-as-fal"/>
+                <outlet property="homeTableView" destination="exm-ci-9OR" id="qmt-EK-5kj"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="exm-ci-9OR">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="eID-Cd-MYg"/>
+                        <outlet property="delegate" destination="-1" id="RfX-f1-H3A"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eW9-ib-NNu">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <color key="backgroundColor" red="0.18823529411764706" green="0.77254901960784317" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="5FA-XG-K55"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="eW9-ib-NNu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1Ws-bS-Rnl"/>
+                <constraint firstAttribute="bottom" secondItem="exm-ci-9OR" secondAttribute="bottom" id="A0J-Ii-dSE"/>
+                <constraint firstAttribute="trailing" secondItem="eW9-ib-NNu" secondAttribute="trailing" id="BH7-Tv-wbS"/>
+                <constraint firstItem="exm-ci-9OR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gdt-Sv-0nI"/>
+                <constraint firstAttribute="trailing" secondItem="exm-ci-9OR" secondAttribute="trailing" id="hgd-hS-vZD"/>
+                <constraint firstItem="exm-ci-9OR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jep-B0-Vd2"/>
+                <constraint firstItem="eW9-ib-NNu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rCV-G1-3Ve"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

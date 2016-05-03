@@ -51,6 +51,8 @@
     if (self) {
         [self.homeView addSubview:homeViewController.view];
         [self.leftView addSubview:leftViewController.view];
+        [self addChildViewController:homeViewController];
+        [self addChildViewController:leftViewController];
         [self setLeftAndHomeView];
     }
     return self;

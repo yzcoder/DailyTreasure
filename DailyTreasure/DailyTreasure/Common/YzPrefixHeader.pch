@@ -18,15 +18,8 @@
 #import "YzHttpOperation.h"
 #import "UIView+Extension.h"
 
-#define kScreenWidth  [UIScreen mainScreen].bounds.size.width
-#define kScreenHeight [UIScreen mainScreen].bounds.size.height
-#define kScreenBounds [UIScreen mainScreen].bounds
+#import "YzDefineHeader.h"
 
-#define kBaseURL @"http://news-at.zhihu.com/api/4"
-#define kLaunchImageURL @"start-image/720*1184"
-
-
-
-
+#import "EXTScope.h"
 
 #endif /* YzPrefixHeader_pch */

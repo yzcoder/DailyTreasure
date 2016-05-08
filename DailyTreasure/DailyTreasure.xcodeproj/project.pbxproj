@@ -7,13 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B524A391CDE552B00FE8567 /* YzHomeSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B524A381CDE552B00FE8567 /* YzHomeSectionModel.m */; };
 		3B685CD11CD74ACB000290C1 /* YzLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B685CCE1CD74ACB000290C1 /* YzLeftViewController.m */; };
 		3B685CD21CD74ACB000290C1 /* YzLeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B685CCF1CD74ACB000290C1 /* YzLeftViewController.xib */; };
 		3B685CDA1CD74AE1000290C1 /* YzHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B685CD71CD74AE1000290C1 /* YzHomeViewController.m */; };
 		3B685CDB1CD74AE1000290C1 /* YzHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B685CD81CD74AE1000290C1 /* YzHomeViewController.xib */; };
 		3B685D1E1CD8F07D000290C1 /* YzCustomNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B685D1D1CD8F07D000290C1 /* YzCustomNavView.m */; };
 		3B685D221CD8F6BE000290C1 /* YzCustomNavView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B685D211CD8F6BE000290C1 /* YzCustomNavView.xib */; };
+		3B685D251CDCF8A6000290C1 /* YzHomeViewDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B685D241CDCF8A6000290C1 /* YzHomeViewDataProvider.m */; };
+		3B685D281CDCF8FD000290C1 /* YzHomeStoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B685D271CDCF8FD000290C1 /* YzHomeStoryModel.m */; };
+		3B685D2C1CDCF921000290C1 /* YzHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B685D2A1CDCF921000290C1 /* YzHomeTableViewCell.m */; };
+		3B685D2D1CDCF921000290C1 /* YzHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B685D2B1CDCF921000290C1 /* YzHomeTableViewCell.xib */; };
 		3B81A69A1CCCD60A000AE377 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B81A6991CCCD60A000AE377 /* Default@2x.png */; };
+		3BB756901CDF4E9B00B410C8 /* YzHomeTopStoriesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB7568F1CDF4E9B00B410C8 /* YzHomeTopStoriesView.m */; };
 		3BED77341CC925EA00770074 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BED772F1CC925EA00770074 /* UIView+Extension.m */; };
 		3BED77351CC925EA00770074 /* YzHttpOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BED77321CC925EA00770074 /* YzHttpOperation.m */; };
 		3BED77391CCB78DB00770074 /* YzDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BED77381CCB78DB00770074 /* YzDrawerViewController.m */; };
@@ -45,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B524A371CDE552B00FE8567 /* YzHomeSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzHomeSectionModel.h; sourceTree = "<group>"; };
+		3B524A381CDE552B00FE8567 /* YzHomeSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YzHomeSectionModel.m; sourceTree = "<group>"; };
 		3B685CCD1CD74ACB000290C1 /* YzLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzLeftViewController.h; sourceTree = "<group>"; };
 		3B685CCE1CD74ACB000290C1 /* YzLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YzLeftViewController.m; sourceTree = "<group>"; };
 		3B685CCF1CD74ACB000290C1 /* YzLeftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YzLeftViewController.xib; sourceTree = "<group>"; };
@@ -55,7 +63,16 @@
 		3B685D1C1CD8F07D000290C1 /* YzCustomNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzCustomNavView.h; sourceTree = "<group>"; };
 		3B685D1D1CD8F07D000290C1 /* YzCustomNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YzCustomNavView.m; sourceTree = "<group>"; };
 		3B685D211CD8F6BE000290C1 /* YzCustomNavView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YzCustomNavView.xib; sourceTree = "<group>"; };
+		3B685D231CDCF8A6000290C1 /* YzHomeViewDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzHomeViewDataProvider.h; sourceTree = "<group>"; };
+		3B685D241CDCF8A6000290C1 /* YzHomeViewDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YzHomeViewDataProvider.m; sourceTree = "<group>"; };
+		3B685D261CDCF8FD000290C1 /* YzHomeStoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzHomeStoryModel.h; sourceTree = "<group>"; };
+		3B685D271CDCF8FD000290C1 /* YzHomeStoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YzHomeStoryModel.m; sourceTree = "<group>"; };
+		3B685D291CDCF921000290C1 /* YzHomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzHomeTableViewCell.h; sourceTree = "<group>"; };
+		3B685D2A1CDCF921000290C1 /* YzHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YzHomeTableViewCell.m; sourceTree = "<group>"; };
+		3B685D2B1CDCF921000290C1 /* YzHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YzHomeTableViewCell.xib; sourceTree = "<group>"; };
 		3B81A6991CCCD60A000AE377 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		3BB7568E1CDF4E9B00B410C8 /* YzHomeTopStoriesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzHomeTopStoriesView.h; sourceTree = "<group>"; };
+		3BB7568F1CDF4E9B00B410C8 /* YzHomeTopStoriesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YzHomeTopStoriesView.m; sourceTree = "<group>"; };
 		3BED772E1CC925EA00770074 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		3BED772F1CC925EA00770074 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		3BED77311CC925EA00770074 /* YzHttpOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzHttpOperation.h; sourceTree = "<group>"; };
@@ -164,6 +181,10 @@
 		3B685CD31CD74AE1000290C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3B685D261CDCF8FD000290C1 /* YzHomeStoryModel.h */,
+				3B685D271CDCF8FD000290C1 /* YzHomeStoryModel.m */,
+				3B524A371CDE552B00FE8567 /* YzHomeSectionModel.h */,
+				3B524A381CDE552B00FE8567 /* YzHomeSectionModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,6 +195,11 @@
 				3B685D1C1CD8F07D000290C1 /* YzCustomNavView.h */,
 				3B685D1D1CD8F07D000290C1 /* YzCustomNavView.m */,
 				3B685D211CD8F6BE000290C1 /* YzCustomNavView.xib */,
+				3B685D291CDCF921000290C1 /* YzHomeTableViewCell.h */,
+				3B685D2A1CDCF921000290C1 /* YzHomeTableViewCell.m */,
+				3B685D2B1CDCF921000290C1 /* YzHomeTableViewCell.xib */,
+				3BB7568E1CDF4E9B00B410C8 /* YzHomeTopStoriesView.h */,
+				3BB7568F1CDF4E9B00B410C8 /* YzHomeTopStoriesView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,6 +217,8 @@
 		3B685CD91CD74AE1000290C1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3B685D231CDCF8A6000290C1 /* YzHomeViewDataProvider.h */,
+				3B685D241CDCF8A6000290C1 /* YzHomeViewDataProvider.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -448,6 +476,7 @@
 				3BEF37201CA5826800DF219F /* LaunchScreen.storyboard in Resources */,
 				3BEF371D1CA5826800DF219F /* Assets.xcassets in Resources */,
 				3BEF371B1CA5826800DF219F /* Main.storyboard in Resources */,
+				3B685D2D1CDCF921000290C1 /* YzHomeTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,8 +549,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B685D251CDCF8A6000290C1 /* YzHomeViewDataProvider.m in Sources */,
+				3B685D281CDCF8FD000290C1 /* YzHomeStoryModel.m in Sources */,
 				3BED77351CC925EA00770074 /* YzHttpOperation.m in Sources */,
 				3BED77391CCB78DB00770074 /* YzDrawerViewController.m in Sources */,
+				3B685D2C1CDCF921000290C1 /* YzHomeTableViewCell.m in Sources */,
+				3B524A391CDE552B00FE8567 /* YzHomeSectionModel.m in Sources */,
+				3BB756901CDF4E9B00B410C8 /* YzHomeTopStoriesView.m in Sources */,
 				3BED77341CC925EA00770074 /* UIView+Extension.m in Sources */,
 				3BEF37151CA5826800DF219F /* YzAppDelegate.m in Sources */,
 				3B685D1E1CD8F07D000290C1 /* YzCustomNavView.m in Sources */,
@@ -677,6 +711,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Yz.DailyTreasure;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -694,6 +729,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Yz.DailyTreasure;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

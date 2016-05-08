@@ -464,9 +464,7 @@ A program like ZhiHuDaily.
         }
 
 ###17. 查看editor的主页
-* iOS: `http://news-at.zhihu.com/api/4/editor/#{id}/profile-page/ios`
-* Android: `http://news-at.zhihu.com/api/4/editor/#{id}/profile-page/android`
-* 如 http://news-at.zhihu.com/api/4/editor/79/profile-page/ios
+* https://github.com/yzcoder
 
 
 # 声明

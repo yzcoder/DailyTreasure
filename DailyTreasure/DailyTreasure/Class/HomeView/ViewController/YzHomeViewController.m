@@ -7,14 +7,25 @@
 //
 
 #import "YzHomeViewController.h"
+#import "YzHomeViewDataProvider.h"
+#import "YzHomeTableViewCell.h"
 #import "YzCustomNavView.h"
-@interface YzHomeViewController ()<UITableViewDataSource, UITableViewDelegate>
+#import "YzHomeTopStoriesView.h"
+
+
+
+@interface YzHomeViewController ()<UITableViewDataSource, UITableViewDelegate ,UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *custonNavBackiView;
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
 
 @property (nonatomic, weak) YzCustomNavView *cusNavView;
+@property (nonatomic, strong) UIView *headerView;
+@property (nonatomic, strong) YzHomeTopStoriesView *topStoryView;
+@property (nonatomic, strong) YzHomeViewDataProvider *homeViewProvider;
 
+@property (nonatomic, strong) NSArray *topStoriesArray;
+@property (nonatomic, strong) NSArray *storiesArray;
 @end
 
 @implementation YzHomeViewController
@@ -31,6 +42,29 @@
     return _cusNavView;
 }
 
+-(YzHomeViewDataProvider *)homeViewProvider {
+    if (!_homeViewProvider) {
+        _homeViewProvider = [[YzHomeViewDataProvider alloc] init];
+    }
+    return _homeViewProvider;
+}
+
+
+
+-(NSArray *)storiesArray {
+    if (!_storiesArray) {
+        _storiesArray = [NSArray array];
+    }
+    return _storiesArray;
+}
+
+-(NSArray *)topStoriesArray {
+    if (!_topStoriesArray) {
+        _topStoriesArray = [NSArray array];
+    }
+    return _topStoriesArray;
+}
+
 
 #pragma mark - INIT -
 - (void)viewDidLoad {
@@ -39,19 +73,27 @@
     self.view.frame = kScreenBounds;
     
     [self.view bringSubviewToFront:self.cusNavView];
+    self.custonNavBackiView.alpha = 0;
     
+    self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHomeTopStoriesViewHeight)];
+    self.headerView.backgroundColor = [UIColor whiteColor];
+    self.homeTableView.tableHeaderView = self.headerView;
+
+    
+
+    /**< 数据源*/
     @weakify(self);
-    [RACObserve(self.homeTableView, contentOffset) subscribeNext:^(id x) {
+    [[self.homeViewProvider getHomeViewData] subscribeNext:^(NSDictionary *dataSourceDict) {
         @strongify(self);
-        self.custonNavBackiView.alpha = 1 - self.homeTableView.contentOffset.y/100;
         
-//        if (self.homeTableView.contentOffset.y < 0) {
-          self.cusNavView.progress = -self.homeTableView.contentOffset.y/100;
-//        }
-     
-     }];
-    
-    
+        [self.homeTableView reloadData];
+        
+        self.topStoryView = [[YzHomeTopStoriesView alloc] initWithModels:[self.homeViewProvider getTopStoriesArray] frame:CGRectMake(0, 0, kScreenWidth, kHomeTopStoriesViewHeight)];
+        [self.headerView addSubview:self.topStoryView];
+        
+    } error:^(NSError *error) {
+        
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -66,25 +108,32 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UIScrollViewDelegate -
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    self.custonNavBackiView.alpha = scrollView.contentOffset.y/100 - 1;
+    self.cusNavView.progress = -scrollView.contentOffset.y/100;
+
+}
+
 #pragma mark - UITableViewDelegate & UITableViewDataSource -
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 10;
+    return [self.homeViewProvider numberOfSections];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return [self.homeViewProvider numberOfRowsInSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-    cell.textLabel.text = @"测试";
+    YzHomeTableViewCell *cell = [YzHomeTableViewCell homeTableViewCellWithTableView:tableView];
+    cell.cellProvider = [self.homeViewProvider cellProviderAtIndexPath:indexPath];
     return cell;
 }
 
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
+    return 88;
 }
 
 

@@ -20,7 +20,6 @@
 
 @interface StoryView : UIView
 
-- (void)cleanData ;
 @property (nonatomic, copy) NSURL *imageURL;
 @property (nonatomic, copy) NSString *title;
 

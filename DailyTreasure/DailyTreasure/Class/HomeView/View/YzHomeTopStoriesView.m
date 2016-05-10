@@ -18,6 +18,8 @@
 @property (nonatomic, weak) StoryView *preStoryView;
 @property (nonatomic, weak) StoryView *currentStoryView;
 @property (nonatomic, weak) StoryView *nextStoryView;
+@property (nonatomic, weak) UIPageControl *pageControl;
+@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -27,7 +29,8 @@
 
 -(UIScrollView *)mainScrollView {
     if (!_mainScrollView) {
-        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth * 3, kHomeTopStoriesViewHeight)];
+        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHomeTopStoriesViewHeight)];
+        scrollView.contentSize = CGSizeMake(kScreenWidth * 3, kHomeTopStoriesViewHeight);
         [self addSubview:scrollView];
         scrollView.delegate = self;
         scrollView.pagingEnabled = YES;
@@ -71,32 +74,50 @@
     }
     return _topstoriesModels;
 }
+
+-(UIPageControl *)pageControl {
+    if (!_pageControl) {
+        UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(kScreenWidth/2 - 40, self.height - 40, 80, 50)];
+        pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
+        pageControl.pageIndicatorTintColor = [UIColor grayColor];
+        [self insertSubview:pageControl aboveSubview:self.mainScrollView];
+        _pageControl = pageControl;
+    }
+    return _pageControl;
+}
+
+#pragma mark - Setter -
+-(void)setCurrentIndex:(NSInteger)currentIndex {
+    _currentIndex = currentIndex;
+    
+    self.pageControl.currentPage = _currentIndex;
+}
+
 #pragma mark - 页面逻辑 -
 
 - (instancetype)initWithModels:(NSArray *)topstoriesModels frame:(CGRect)frame {
     
     if (self = [super initWithFrame:frame]) {
-        
-        _currentIndex = 0;
-        
+    
         self.topstoriesModels = topstoriesModels;
-        
+        self.pageControl.numberOfPages = self.topstoriesModels.count;
         [self loadPage];
+        [self creatTimer];
     }
     return self;
 }
 
+- (void)creatTimer {
+    _timer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(timerUpdatePage) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+}
 - (void)loadPage
 {
-    [self.mainScrollView setContentOffset:CGPointMake(kScreenWidth, 0)];
+    [self.mainScrollView setContentOffset:CGPointMake(kScreenWidth, 0) ];
     
     if (self.topstoriesModels.count == 0) {
         return;
     }
-    // 移除三个视图上的数据
-    [self.preStoryView cleanData];
-    [self.currentStoryView cleanData];
-    [self.nextStoryView cleanData];
     
     // 加载三张图
     // 当前页
@@ -118,6 +139,10 @@
 
 }
 
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    [self updateCurrentIndex];
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self updateCurrentIndex];
 }
@@ -125,18 +150,23 @@
 - (void)updateCurrentIndex {
     int index = self.mainScrollView.contentOffset.x / kScreenWidth;
     if(index == 0) {
-        _currentIndex = _currentIndex-1 < 0 ? self.topstoriesModels.count - 1:_currentIndex - 1;
+        self.currentIndex = _currentIndex-1 < 0 ? self.topstoriesModels.count - 1:_currentIndex - 1;
         [self loadPage];
         return;
     }
     
     if(index == 2) {
-        _currentIndex = _currentIndex + 1 == self.topstoriesModels.count ?0 : _currentIndex + 1;
+        self.currentIndex = _currentIndex + 1 == self.topstoriesModels.count ?0 : _currentIndex + 1;
         [self loadPage];
     }
 }
 
+- (void)timerUpdatePage {
+    [self.mainScrollView setContentOffset:CGPointMake(self.mainScrollView.contentOffset.x + kScreenWidth, self.mainScrollView.contentOffset.y) animated:YES];
+}
+
 @end
+
 
 @interface StoryView ()
 @property (nonatomic, weak) UIImageView *imageView;
@@ -148,7 +178,7 @@
 
 -(UIImageView *)imageView {
     if (!_imageView) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHomeTopStoriesViewHeight)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHomeTopStoriesViewHeight )];
         [self addSubview:imageView];
         _imageView = imageView;
     }
@@ -158,7 +188,7 @@
 -(UILabel *)titleLabel {
     if (!_titleLabel) {
         UILabel *label = [[UILabel alloc] init];
-        
+        label.numberOfLines = 0;
         [self addSubview:label];
         _titleLabel = label;
     }
@@ -184,8 +214,4 @@
 
 }
 
-- (void)cleanData {
-//    self.imageView.image = nil;
-//    self.titleLabel.attributedText = nil;
-}
 @end

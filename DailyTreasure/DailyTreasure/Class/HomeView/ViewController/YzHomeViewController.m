@@ -15,9 +15,9 @@
 
 
 @interface YzHomeViewController ()<UITableViewDataSource, UITableViewDelegate ,UIScrollViewDelegate>
-
-@property (weak, nonatomic) IBOutlet UIView *custonNavBackiView;
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
+@property (weak, nonatomic) IBOutlet UIView *custonNavBackiView;
+
 
 @property (nonatomic, weak) YzCustomNavView *cusNavView;
 @property (nonatomic, strong) UIView *headerView;
@@ -111,8 +111,15 @@
 #pragma mark - UIScrollViewDelegate -
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     self.custonNavBackiView.alpha = scrollView.contentOffset.y/100 - 1;
-    self.cusNavView.progress = -scrollView.contentOffset.y/100;
+    self.cusNavView.progress = -scrollView.contentOffset.y/40;
+    
+    if (scrollView.contentOffset.y < -80) {
+        scrollView.contentOffset = CGPointMake(0, -80);
+    }
+}
 
+-(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return self.headerView;
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource -

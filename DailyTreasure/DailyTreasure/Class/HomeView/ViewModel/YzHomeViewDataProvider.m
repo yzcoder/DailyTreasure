@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) NSMutableArray <YzHomeSectionModel *>*sectionModelArray;
 @property (nonatomic, strong) NSMutableArray <YzHomeTopDataProvider *>*topStoryArray;
+@property (nonatomic, copy) NSString *currentDateString;
 
 @end
 
@@ -42,7 +43,7 @@
         @strongify(self);
         [YzHttpOperation getRequestWithURL:kGetHomeStories parameters:nil success:^(id  _Nonnull responseObject) {
             NSDictionary *reponseDict = (NSDictionary*)responseObject;
-            
+            self.currentDateString = reponseDict[@"date"];
             YzHomeSectionModel *sectionModel = [YzHomeSectionModel sectionModelWithTitle:reponseDict[@"date"] modelArray:reponseDict[@"stories"]];
             [self.sectionModelArray addObject:sectionModel];
             
@@ -66,6 +67,32 @@
     }];
 }
 
+#pragma mark 获取历史记录
+- (RACSignal *)getPreviousStories {
+    @weakify(self)
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        @strongify(self);
+        [YzHttpOperation getRequestWithURL:[NSString stringWithFormat:@"%@%@",kGetHistoryStories,self.currentDateString] parameters:nil success:^(id  _Nonnull responseObject) {
+            NSDictionary *reponseDict = (NSDictionary*)responseObject;
+            self.currentDateString = reponseDict[@"date"];
+            YzHomeSectionModel *sectionModel = [YzHomeSectionModel sectionModelWithTitle:reponseDict[@"date"] modelArray:reponseDict[@"stories"]];
+            [self.sectionModelArray addObject:sectionModel];
+            
+            [subscriber sendNext:nil];
+            [subscriber sendCompleted];
+            
+        } failure:^(NSError * _Nonnull error) {
+            [subscriber sendError:error];
+            [subscriber sendCompleted];
+        }];
+        
+        return [RACDisposable disposableWithBlock:^{
+            
+        }];
+    }];
+}
+
+
 
 
 - (NSInteger)numberOfSections {
@@ -81,7 +108,7 @@
     return  self.sectionModelArray[indexPath.section].dataModelArray[indexPath.row];
 }
 
-- (NSArray <YzHomeTableViewCellDataProvider *>*)getTopStoriesArray {
+- (NSArray <YzHomeTopDataProvider *>*)getTopStoriesArray {
     return [NSArray arrayWithArray:self.topStoryArray];
 }
 

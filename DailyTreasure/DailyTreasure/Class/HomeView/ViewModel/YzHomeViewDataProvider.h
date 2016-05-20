@@ -10,19 +10,20 @@
 
 #import <Foundation/Foundation.h>
 @class YzHomeTableViewCellDataProvider;
-
+@class YzHomeTopDataProvider;
 
 @interface YzHomeViewDataProvider : NSObject
 
 /**< 获取当日最新*/
 - (RACSignal *)getHomeViewData;
-
+/**< 获取历史记录*/
+- (RACSignal *)getPreviousStories;
 
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfRowsInSection:(NSInteger)section;
 - (NSString *)headerTitleForSection:(NSInteger)section;
 - (YzHomeTableViewCellDataProvider *)cellProviderAtIndexPath:(NSIndexPath *)indexPath;
-- (NSArray <YzHomeTableViewCellDataProvider *>*)getTopStoriesArray;
+- (NSArray <YzHomeTopDataProvider *>*)getTopStoriesArray;
 
 @end
 

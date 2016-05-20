@@ -29,5 +29,6 @@
 @interface YzDrawerViewController : UIViewController
 
 + (YzDrawerViewController *)creatDrawerViewControllerWithHomeViewController:(UIViewController *)homeViewController leftViewController:(UIViewController *)leftViewController;
-
+- (void)showMainView;
+- (void)showLeftMenuView;
 @end

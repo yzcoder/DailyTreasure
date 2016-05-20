@@ -10,19 +10,19 @@
 #define YzDefineHeader_h
 
 
-
+#import "YzAppDelegate.h"
 
 #define kScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 #define kScreenBounds [UIScreen mainScreen].bounds
-
+#define kAppdelegate  (YzAppDelegate *)[UIApplication sharedApplication].delegate;
 
 /**< network*/
 
 #define kBaseURL @"http://news-at.zhihu.com/api/4"
 #define kGetLaunchImageURL @"start-image/720*1184"
 #define kGetHomeStories @"news/latest"
-
+#define kGetHistoryStories @"news/before/"
 
 
 

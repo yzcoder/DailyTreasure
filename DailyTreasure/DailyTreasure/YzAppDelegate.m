@@ -7,7 +7,6 @@
 //
 
 #import "YzAppDelegate.h"
-#import "YzDrawerViewController.h"
 #import "YzHomeViewController.h"
 #import "YzLeftViewController.h"
 @interface YzAppDelegate ()
@@ -26,7 +25,8 @@
     [self.window makeKeyAndVisible];
     YzHomeViewController *homeViewController = [[YzHomeViewController alloc] init];
     YzLeftViewController *leftViewController = [[YzLeftViewController alloc] init];
-    UINavigationController *narigation = [[UINavigationController alloc] initWithRootViewController:[YzDrawerViewController creatDrawerViewControllerWithHomeViewController:homeViewController leftViewController:leftViewController]];
+    self.drawerViewController = [YzDrawerViewController creatDrawerViewControllerWithHomeViewController:homeViewController leftViewController:leftViewController];
+    UINavigationController *narigation = [[UINavigationController alloc] initWithRootViewController:    self.drawerViewController];
     self.window.rootViewController = narigation;
     [self setLauchView];
     

@@ -10,16 +10,16 @@
 #define kHomeTopStoriesViewHeight 300
 
 #import <UIKit/UIKit.h>
-
+#import "YzHomeViewDataProvider.h"
 
 @interface YzHomeTopStoriesView : UIView
-
-- (instancetype)initWithModels:(NSArray *)topstoriesModels frame:(CGRect)frame ;
+@property (nonatomic, strong) NSArray <YzHomeTopDataProvider *>*topstoriesModels;
 
 @end
 
 @interface StoryView : UIView
 
+@property (nonatomic, weak) UIImageView *imageView;
 @property (nonatomic, copy) NSURL *imageURL;
 @property (nonatomic, copy) NSString *title;
 

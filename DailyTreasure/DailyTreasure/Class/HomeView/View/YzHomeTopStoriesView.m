@@ -9,12 +9,12 @@
 
 
 #import "YzHomeTopStoriesView.h"
-#import "YzHomeViewDataProvider.h"
+
 @interface YzHomeTopStoriesView ()<UIScrollViewDelegate>
 
 @property (nonatomic, weak) UIScrollView *mainScrollView;
 @property (nonatomic, assign) NSInteger currentIndex;
-@property (nonatomic, strong) NSArray <YzHomeTopDataProvider *>*topstoriesModels;
+
 @property (nonatomic, weak) StoryView *preStoryView;
 @property (nonatomic, weak) StoryView *currentStoryView;
 @property (nonatomic, weak) StoryView *nextStoryView;
@@ -29,13 +29,14 @@
 
 -(UIScrollView *)mainScrollView {
     if (!_mainScrollView) {
-        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHomeTopStoriesViewHeight)];
-        scrollView.contentSize = CGSizeMake(kScreenWidth * 3, kHomeTopStoriesViewHeight);
+        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
+        scrollView.contentSize = CGSizeMake(kScreenWidth * 3, 200);
         [self addSubview:scrollView];
         scrollView.delegate = self;
         scrollView.pagingEnabled = YES;
         scrollView.showsHorizontalScrollIndicator = NO;
         scrollView.bounces = NO;
+        scrollView.clipsToBounds = NO;
         _mainScrollView = scrollView;
     }
     return _mainScrollView;
@@ -43,7 +44,7 @@
 
 -(StoryView *)preStoryView {
     if (!_preStoryView) {
-        StoryView *storyView = [[StoryView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHomeTopStoriesViewHeight)];
+        StoryView *storyView = [[StoryView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
         [self.mainScrollView addSubview:storyView];
         _preStoryView = storyView;
     }
@@ -52,28 +53,29 @@
 
 -(StoryView *)currentStoryView {
     if (!_currentStoryView) {
-        StoryView *storyView = [[StoryView alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, kHomeTopStoriesViewHeight)];
+        StoryView *storyView = [[StoryView alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, 200)];
         [self.mainScrollView addSubview:storyView];
         _currentStoryView = storyView;
+        _currentStoryView.backgroundColor = [UIColor greenColor];
     }
     return _currentStoryView;
 }
 
 -(StoryView *)nextStoryView {
     if (!_nextStoryView) {
-        StoryView *storyView = [[StoryView alloc] initWithFrame:CGRectMake(kScreenWidth * 2, 0, kScreenWidth, kHomeTopStoriesViewHeight)];
+        StoryView *storyView = [[StoryView alloc] initWithFrame:CGRectMake(kScreenWidth * 2, 0, kScreenWidth, 200)];
         [self.mainScrollView addSubview:storyView];
         _nextStoryView = storyView;
     }
     return _nextStoryView;
 }
 
--(NSArray *)topstoriesModels {
-    if (!_topstoriesModels) {
-        _topstoriesModels = [NSArray array];
-    }
-    return _topstoriesModels;
-}
+//-(NSArray *)topstoriesModels {
+//    if (!_topstoriesModels) {
+//        _topstoriesModels = [NSArray array];
+//    }
+//    return _topstoriesModels;
+//}
 
 -(UIPageControl *)pageControl {
     if (!_pageControl) {
@@ -93,19 +95,30 @@
     self.pageControl.currentPage = _currentIndex;
 }
 
+-(void)setTopstoriesModels:(NSArray<YzHomeTopDataProvider *> *)topstoriesModels {
+    _topstoriesModels  = topstoriesModels;
+    
+    [self loadPage];
+}
+
 #pragma mark - 页面逻辑 -
 
-- (instancetype)initWithModels:(NSArray *)topstoriesModels frame:(CGRect)frame {
-    
-    if (self = [super initWithFrame:frame]) {
-    
-        self.topstoriesModels = topstoriesModels;
-        self.pageControl.numberOfPages = self.topstoriesModels.count;
-        [self loadPage];
-        [self creatTimer];
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.topstoriesModels = [NSMutableArray array];
     }
     return self;
 }
+
+-(void)willMoveToSuperview:(UIView *)newSuperview {
+    [super willMoveToSuperview:newSuperview];
+    self.pageControl.numberOfPages = self.topstoriesModels.count;
+    [self loadPage];
+    [self creatTimer];
+}
+
 
 - (void)creatTimer {
     _timer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(timerUpdatePage) userInfo:nil repeats:YES];
@@ -165,11 +178,16 @@
     [self.mainScrollView setContentOffset:CGPointMake(self.mainScrollView.contentOffset.x + kScreenWidth, self.mainScrollView.contentOffset.y) animated:YES];
 }
 
+-(void)layoutSubviews {
+    [super layoutSubviews];
+    [self.currentStoryView setFrame :CGRectMake(kScreenWidth, 0, kScreenWidth, self.height) ];
+}
+
 @end
 
 
 @interface StoryView ()
-@property (nonatomic, weak) UIImageView *imageView;
+
 @property (nonatomic, weak) UILabel *titleLabel;
 
 @end
@@ -178,7 +196,10 @@
 
 -(UIImageView *)imageView {
     if (!_imageView) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHomeTopStoriesViewHeight )];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200 )];
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.clipsToBounds = YES;
+        
         [self addSubview:imageView];
         _imageView = imageView;
     }
@@ -208,10 +229,17 @@
     NSAttributedString *attStr = [[NSAttributedString alloc] initWithString:title attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:21],NSForegroundColorAttributeName:[UIColor whiteColor]}];
     CGSize size =  [attStr boundingRectWithSize:CGSizeMake(kScreenWidth - 30, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading context:nil].size;
     self.titleLabel.attributedText = attStr;
-    self.titleLabel.frame = CGRectMake(15, kHomeTopStoriesViewHeight - 30 - size.height, kScreenWidth - 30, size.height);
+    self.titleLabel.frame = CGRectMake(15, 200 - 30 - size.height, kScreenWidth - 30, size.height);
     
     [self layoutIfNeeded];
 
+}
+
+-(void)layoutSubviews {
+    [super layoutSubviews];
+    
+    [self.imageView setFrame:CGRectMake(0 - kScreenWidth * (self.height/200 - 1)/2 , 0, kScreenWidth * (self.height/200), self.height)];
+    [self.titleLabel setFrame:CGRectMake(15, self.height - 30 - self.titleLabel.height, kScreenWidth - 30, self.titleLabel.height)];
 }
 
 @end

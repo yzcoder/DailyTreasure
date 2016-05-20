@@ -16,11 +16,11 @@
 
 @interface YzHomeViewController ()<UITableViewDataSource, UITableViewDelegate ,UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
+
 @property (weak, nonatomic) IBOutlet UIView *custonNavBackiView;
 
 
 @property (nonatomic, weak) YzCustomNavView *cusNavView;
-@property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, strong) YzHomeTopStoriesView *topStoryView;
 @property (nonatomic, strong) YzHomeViewDataProvider *homeViewProvider;
 
@@ -67,18 +67,39 @@
 
 
 #pragma mark - INIT -
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.view.frame = kScreenBounds;
     
+    
+    
+    
     [self.view bringSubviewToFront:self.cusNavView];
+    [self.cusNavView.customNavViewLeftButtonItem setImage:[UIImage imageNamed:@"Home_Icon"] forState:(UIControlStateNormal)];
+    self.cusNavView.customNavViewTitleLabel.text = @"今日新闻";
+    [[self.cusNavView.customNavViewLeftButtonItem rac_signalForControlEvents:(UIControlEventTouchUpInside)] subscribeNext:^(id x) {
+        YzAppDelegate *appDelegate = kAppdelegate;
+        [appDelegate.drawerViewController showLeftMenuView];
+    }];
     self.custonNavBackiView.alpha = 0;
     
-    self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHomeTopStoriesViewHeight)];
-    self.headerView.backgroundColor = [UIColor whiteColor];
-    self.homeTableView.tableHeaderView = self.headerView;
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth,200)];
+    
+    self.homeTableView.tableHeaderView = view;
+    
+    
+    self.topStoryView = [[YzHomeTopStoriesView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHomeTopStoriesViewHeight -100 )];
+//    self.topStoryView.clipsToBounds = YES;
+    [self.homeTableView addSubview:self.topStoryView];
+    self.topStoryView.backgroundColor = [UIColor orangeColor];
+    
 
+    
     
 
     /**< 数据源*/
@@ -88,8 +109,7 @@
         
         [self.homeTableView reloadData];
         
-        self.topStoryView = [[YzHomeTopStoriesView alloc] initWithModels:[self.homeViewProvider getTopStoriesArray] frame:CGRectMake(0, 0, kScreenWidth, kHomeTopStoriesViewHeight)];
-        [self.headerView addSubview:self.topStoryView];
+        self.topStoryView.topstoriesModels = [self.homeViewProvider getTopStoriesArray];
         
     } error:^(NSError *error) {
         
@@ -113,14 +133,23 @@
     self.custonNavBackiView.alpha = scrollView.contentOffset.y/100 - 1;
     self.cusNavView.progress = -scrollView.contentOffset.y/40;
     
-    if (scrollView.contentOffset.y < -80) {
+    if (scrollView.contentOffset.y < 0 && scrollView.contentOffset.y >= -80) {
+//        self.topStoryView.top = - fabs(scrollView.contentOffset.y);
+//        self.topStoryView.height = 200 + fabs(scrollView.contentOffset.y);
+        
+        self.topStoryView.frame = CGRectMake(0, - fabs(scrollView.contentOffset.y), kScreenWidth, 200 + fabs(scrollView.contentOffset.y));
+    }else
+        if (scrollView.contentOffset.y < -80) {
         scrollView.contentOffset = CGPointMake(0, -80);
+    }
+    
+    if (scrollView.contentSize.height - scrollView.contentOffset.y <= kScreenHeight) {
+        [[self.homeViewProvider getPreviousStories] subscribeNext:^(id x) {
+            [self.homeTableView reloadData];
+        }];
     }
 }
 
--(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return self.headerView;
-}
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource -
 

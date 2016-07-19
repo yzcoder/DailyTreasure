@@ -134,14 +134,12 @@
     self.cusNavView.progress = -scrollView.contentOffset.y/40;
     
     if (scrollView.contentOffset.y < 0 && scrollView.contentOffset.y >= -80) {
-//        self.topStoryView.top = - fabs(scrollView.contentOffset.y);
-//        self.topStoryView.height = 200 + fabs(scrollView.contentOffset.y);
         
         self.topStoryView.frame = CGRectMake(0, - fabs(scrollView.contentOffset.y), kScreenWidth, 200 + fabs(scrollView.contentOffset.y));
     }else
         if (scrollView.contentOffset.y < -80) {
-        scrollView.contentOffset = CGPointMake(0, -80);
-    }
+            scrollView.contentOffset = CGPointMake(0, -80);
+        }
     
     if (scrollView.contentSize.height - scrollView.contentOffset.y <= kScreenHeight) {
         [[self.homeViewProvider getPreviousStories] subscribeNext:^(id x) {

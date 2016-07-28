@@ -56,7 +56,6 @@
         StoryView *storyView = [[StoryView alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, 200)];
         [self.mainScrollView addSubview:storyView];
         _currentStoryView = storyView;
-        _currentStoryView.backgroundColor = [UIColor greenColor];
     }
     return _currentStoryView;
 }
@@ -230,7 +229,6 @@
     CGSize size =  [attStr boundingRectWithSize:CGSizeMake(kScreenWidth - 30, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading context:nil].size;
     self.titleLabel.attributedText = attStr;
     self.titleLabel.frame = CGRectMake(15, 200 - 30 - size.height, kScreenWidth - 30, size.height);
-    
     [self layoutIfNeeded];
 
 }

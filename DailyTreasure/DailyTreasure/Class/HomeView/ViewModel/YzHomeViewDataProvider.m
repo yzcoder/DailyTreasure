@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSMutableArray <YzHomeTopDataProvider *>*topStoryArray;
 @property (nonatomic, copy) NSString *currentDateString;
 
+
 @end
 
 @implementation YzHomeViewDataProvider
@@ -69,6 +70,7 @@
 
 #pragma mark 获取历史记录
 - (RACSignal *)getPreviousStories {
+    _isLoading = YES;
     @weakify(self)
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
@@ -80,10 +82,11 @@
             
             [subscriber sendNext:nil];
             [subscriber sendCompleted];
-            
+            _isLoading = NO;
         } failure:^(NSError * _Nonnull error) {
             [subscriber sendError:error];
             [subscriber sendCompleted];
+            _isLoading = NO;
         }];
         
         return [RACDisposable disposableWithBlock:^{
@@ -99,7 +102,7 @@
     return self.sectionModelArray.count;
 }
 - (NSInteger)numberOfRowsInSection:(NSInteger)section {
-    return  self.sectionModelArray[section].dataModelArray.count;
+    return  self.sectionModelArray.count ? self.sectionModelArray[section].dataModelArray.count : -1;
 }
 - (NSString *)headerTitleForSection:(NSInteger)section {
     return  self.sectionModelArray[section].headerTitle;

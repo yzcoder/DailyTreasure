@@ -13,6 +13,9 @@
 #import "YzHomeTopStoriesView.h"
 
 
+#define kTableHeaderViewHeight 180
+#define kTableViewCellHeight 88
+
 
 @interface YzHomeViewController ()<UITableViewDataSource, UITableViewDelegate ,UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
@@ -88,15 +91,14 @@
     self.custonNavBackiView.alpha = 0;
     
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth,200)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth,kTableHeaderViewHeight)];
     
     self.homeTableView.tableHeaderView = view;
-    
-    
-    self.topStoryView = [[YzHomeTopStoriesView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHomeTopStoriesViewHeight -100 )];
+    self.homeTableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
+
+    self.topStoryView = [[YzHomeTopStoriesView alloc] initWithFrame:CGRectMake(0, -20, kScreenWidth, kHomeTopStoriesViewHeight -100 )];
 //    self.topStoryView.clipsToBounds = YES;
     [self.homeTableView addSubview:self.topStoryView];
-    self.topStoryView.backgroundColor = [UIColor orangeColor];
     
 
     
@@ -142,10 +144,22 @@
         }
     
     if (scrollView.contentSize.height - scrollView.contentOffset.y <= kScreenHeight) {
-        [[self.homeViewProvider getPreviousStories] subscribeNext:^(id x) {
-            [self.homeTableView reloadData];
-        }];
+        if (!self.homeViewProvider.isLoading) {
+            [[self.homeViewProvider getPreviousStories] subscribeNext:^(id x) {
+                [self.homeTableView reloadData];
+            }];
+        }
     }
+    if ([self.homeViewProvider numberOfRowsInSection:0] != -1) {
+        if (scrollView.contentOffset.y > [self.homeViewProvider numberOfRowsInSection:0] * kTableViewCellHeight + kTableHeaderViewHeight - 20) {
+            self.custonNavBackiView.top = -44;
+            self.cusNavView.customNavViewTitleLabel.hidden = YES;
+        }else {
+            self.custonNavBackiView.top = 0;
+            self.cusNavView.customNavViewTitleLabel.hidden = NO;
+        }
+    }
+    
 }
 
 
@@ -165,9 +179,30 @@
     return cell;
 }
 
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 88;
+    return kTableViewCellHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return 0;
+    }
+    return 44;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return nil;
+    }
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:view.bounds];
+    [view addSubview:titleLabel];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.font = [UIFont systemFontOfSize:16];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.text = [self.homeViewProvider headerTitleForSection:section];
+    view.backgroundColor = kColorHex(0x30C5FF);
+    return view;
 }
 
 

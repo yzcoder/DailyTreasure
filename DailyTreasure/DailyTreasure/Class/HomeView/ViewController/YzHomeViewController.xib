@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -33,6 +33,7 @@
                     </constraints>
                 </view>
             </subviews>
+            <color key="backgroundColor" red="0.18823529411764706" green="0.77254901960784317" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="eW9-ib-NNu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1Ws-bS-Rnl"/>
                 <constraint firstAttribute="bottom" secondItem="exm-ci-9OR" secondAttribute="bottom" id="A0J-Ii-dSE"/>

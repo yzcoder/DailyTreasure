@@ -25,7 +25,7 @@
 - (instancetype)initWithTitle:(NSString *)title modelArray:(NSArray *)modelArray {
     self = [super init];
     if (self) {
-        self.headerTitle = title;
+        self.headerTitle = [self dateStringFormat:title];
         for (NSDictionary *storyDict in modelArray) {
             YzHomeTableViewCellDataProvider *cellProvider = [YzHomeTableViewCellDataProvider homeCellDataProviderWithDictionary:storyDict];
             [self.dataModelArray addObject:cellProvider];
@@ -34,6 +34,17 @@
     return self;
 }
 
+- (NSString *)dateStringFormat:(NSString *)str {
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];;
+    [formatter setDateFormat:@"yyyyMMdd"];
+    NSDate *date = [formatter dateFromString:str];
+    formatter.locale = [NSLocale localeWithLocaleIdentifier:@"zh-CH"];
+    [formatter setDateFormat:@"MM月dd日 EEEE"];
+    NSString *sectionTitleText = [formatter stringFromDate:date];
+    
+    return sectionTitleText;
+}
 
 
 @end

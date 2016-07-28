@@ -14,6 +14,7 @@
 
 @interface YzHomeViewDataProvider : NSObject
 
+@property(nonatomic, assign, readonly) BOOL isLoading;
 /**< 获取当日最新*/
 - (RACSignal *)getHomeViewData;
 /**< 获取历史记录*/
@@ -26,7 +27,6 @@
 - (NSArray <YzHomeTopDataProvider *>*)getTopStoriesArray;
 
 @end
-
 
 @interface YzHomeTableViewCellDataProvider : NSObject
 

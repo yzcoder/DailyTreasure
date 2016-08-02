@@ -29,8 +29,8 @@
 
 -(UIScrollView *)mainScrollView {
     if (!_mainScrollView) {
-        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
-        scrollView.contentSize = CGSizeMake(kScreenWidth * 3, 200);
+        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHomeTopStoriesViewHeight)];
+        scrollView.contentSize = CGSizeMake(kScreenWidth * 3, kHomeTopStoriesViewHeight);
         [self addSubview:scrollView];
         scrollView.delegate = self;
         scrollView.pagingEnabled = YES;
@@ -44,7 +44,7 @@
 
 -(StoryView *)preStoryView {
     if (!_preStoryView) {
-        StoryView *storyView = [[StoryView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
+        StoryView *storyView = [[StoryView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHomeTopStoriesViewHeight)];
         [self.mainScrollView addSubview:storyView];
         _preStoryView = storyView;
     }
@@ -53,7 +53,7 @@
 
 -(StoryView *)currentStoryView {
     if (!_currentStoryView) {
-        StoryView *storyView = [[StoryView alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, 200)];
+        StoryView *storyView = [[StoryView alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, kHomeTopStoriesViewHeight)];
         [self.mainScrollView addSubview:storyView];
         _currentStoryView = storyView;
     }
@@ -62,19 +62,12 @@
 
 -(StoryView *)nextStoryView {
     if (!_nextStoryView) {
-        StoryView *storyView = [[StoryView alloc] initWithFrame:CGRectMake(kScreenWidth * 2, 0, kScreenWidth, 200)];
+        StoryView *storyView = [[StoryView alloc] initWithFrame:CGRectMake(kScreenWidth * 2, 0, kScreenWidth, kHomeTopStoriesViewHeight)];
         [self.mainScrollView addSubview:storyView];
         _nextStoryView = storyView;
     }
     return _nextStoryView;
 }
-
-//-(NSArray *)topstoriesModels {
-//    if (!_topstoriesModels) {
-//        _topstoriesModels = [NSArray array];
-//    }
-//    return _topstoriesModels;
-//}
 
 -(UIPageControl *)pageControl {
     if (!_pageControl) {
@@ -96,7 +89,7 @@
 
 -(void)setTopstoriesModels:(NSArray<YzHomeTopDataProvider *> *)topstoriesModels {
     _topstoriesModels  = topstoriesModels;
-    
+    self.pageControl.numberOfPages = self.topstoriesModels.count;
     [self loadPage];
 }
 
@@ -113,7 +106,7 @@
 
 -(void)willMoveToSuperview:(UIView *)newSuperview {
     [super willMoveToSuperview:newSuperview];
-    self.pageControl.numberOfPages = self.topstoriesModels.count;
+
     [self loadPage];
     [self creatTimer];
 }
@@ -121,7 +114,8 @@
 
 - (void)creatTimer {
     _timer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(timerUpdatePage) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+//    [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSDefaultRunLoopMode];
 }
 - (void)loadPage
 {
@@ -179,7 +173,9 @@
 
 -(void)layoutSubviews {
     [super layoutSubviews];
-    [self.currentStoryView setFrame :CGRectMake(kScreenWidth, 0, kScreenWidth, self.height) ];
+    [self.currentStoryView setFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, self.height)];
+    self.pageControl.frame = CGRectMake(kScreenWidth/2 - 40, self.height - 40, 80, 50);
+
 }
 
 @end
@@ -195,7 +191,7 @@
 
 -(UIImageView *)imageView {
     if (!_imageView) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200 )];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kHomeTopStoriesViewHeight )];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
         
@@ -226,9 +222,9 @@
     _title = title;
     
     NSAttributedString *attStr = [[NSAttributedString alloc] initWithString:title attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:21],NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    CGSize size =  [attStr boundingRectWithSize:CGSizeMake(kScreenWidth - 30, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading context:nil].size;
+    CGSize size =  [attStr boundingRectWithSize:CGSizeMake(kScreenWidth - 30, kHomeTopStoriesViewHeight) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading context:nil].size;
     self.titleLabel.attributedText = attStr;
-    self.titleLabel.frame = CGRectMake(15, 200 - 30 - size.height, kScreenWidth - 30, size.height);
+    self.titleLabel.frame = CGRectMake(15, self.height - 30 - size.height, kScreenWidth - 30, size.height);
     [self layoutIfNeeded];
 
 }
@@ -236,7 +232,7 @@
 -(void)layoutSubviews {
     [super layoutSubviews];
     
-    [self.imageView setFrame:CGRectMake(0 - kScreenWidth * (self.height/200 - 1)/2 , 0, kScreenWidth * (self.height/200), self.height)];
+    [self.imageView setFrame:CGRectMake(0 - kScreenWidth * (self.height/kHomeTopStoriesViewHeight - 1)/2 , 0, kScreenWidth * (self.height/kHomeTopStoriesViewHeight), self.height)];
     [self.titleLabel setFrame:CGRectMake(15, self.height - 30 - self.titleLabel.height, kScreenWidth - 30, self.titleLabel.height)];
 }
 

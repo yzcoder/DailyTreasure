@@ -150,6 +150,10 @@
     return [NSURL URLWithString:self.storyModel.images[0]];
 }
 
+- (NSString *)homeCellStoryID {
+    return self.storyModel.storyid;
+}
+
 - (BOOL)isMultipic {
     return self.storyModel.multipic;
 }
@@ -193,6 +197,10 @@
 
 - (NSURL *)topImageURL {
     return [NSURL URLWithString:self.topModel.image];
+}
+
+-(NSString *)topStoryID {
+    return self.topModel.storyid;
 }
 
 @end

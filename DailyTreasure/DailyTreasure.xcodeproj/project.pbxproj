@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041641411D4F320E00C10A66 /* YzDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416413F1D4F320E00C10A66 /* YzDetailViewController.m */; };
+		041641421D4F320E00C10A66 /* YzDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041641401D4F320E00C10A66 /* YzDetailViewController.xib */; };
+		041641451D4F405D00C10A66 /* YzDetailViewDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 041641441D4F405D00C10A66 /* YzDetailViewDataProvider.m */; };
+		041641481D5091DA00C10A66 /* YzDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 041641471D5091DA00C10A66 /* YzDetailViewModel.m */; };
+		0487385D1D50ACF4007F6DED /* YzRecommenderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487385C1D50ACF4007F6DED /* YzRecommenderModel.m */; };
 		3B524A391CDE552B00FE8567 /* YzHomeSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B524A381CDE552B00FE8567 /* YzHomeSectionModel.m */; };
 		3B685CD11CD74ACB000290C1 /* YzLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B685CCE1CD74ACB000290C1 /* YzLeftViewController.m */; };
 		3B685CD21CD74ACB000290C1 /* YzLeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B685CCF1CD74ACB000290C1 /* YzLeftViewController.xib */; };
@@ -51,6 +56,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0416413E1D4F320E00C10A66 /* YzDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzDetailViewController.h; sourceTree = "<group>"; };
+		0416413F1D4F320E00C10A66 /* YzDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YzDetailViewController.m; sourceTree = "<group>"; };
+		041641401D4F320E00C10A66 /* YzDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YzDetailViewController.xib; sourceTree = "<group>"; };
+		041641431D4F405D00C10A66 /* YzDetailViewDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzDetailViewDataProvider.h; sourceTree = "<group>"; };
+		041641441D4F405D00C10A66 /* YzDetailViewDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YzDetailViewDataProvider.m; sourceTree = "<group>"; };
+		041641461D5091DA00C10A66 /* YzDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzDetailViewModel.h; sourceTree = "<group>"; };
+		041641471D5091DA00C10A66 /* YzDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YzDetailViewModel.m; sourceTree = "<group>"; };
+		0487385B1D50ACF4007F6DED /* YzRecommenderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzRecommenderModel.h; sourceTree = "<group>"; };
+		0487385C1D50ACF4007F6DED /* YzRecommenderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YzRecommenderModel.m; sourceTree = "<group>"; };
 		3B524A371CDE552B00FE8567 /* YzHomeSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzHomeSectionModel.h; sourceTree = "<group>"; };
 		3B524A381CDE552B00FE8567 /* YzHomeSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YzHomeSectionModel.m; sourceTree = "<group>"; };
 		3B685CCD1CD74ACB000290C1 /* YzLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzLeftViewController.h; sourceTree = "<group>"; };
@@ -125,6 +139,75 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		041641321D4EF5A500C10A66 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				041641371D4EF67800C10A66 /* Model */,
+				041641381D4EF67800C10A66 /* View */,
+				041641391D4EF67800C10A66 /* ViewController */,
+				0416413A1D4EF67800C10A66 /* ViewModel */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		041641371D4EF67800C10A66 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				041641461D5091DA00C10A66 /* YzDetailViewModel.h */,
+				041641471D5091DA00C10A66 /* YzDetailViewModel.m */,
+				0487385B1D50ACF4007F6DED /* YzRecommenderModel.h */,
+				0487385C1D50ACF4007F6DED /* YzRecommenderModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		041641381D4EF67800C10A66 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		041641391D4EF67800C10A66 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0416413E1D4F320E00C10A66 /* YzDetailViewController.h */,
+				0416413F1D4F320E00C10A66 /* YzDetailViewController.m */,
+				041641401D4F320E00C10A66 /* YzDetailViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0416413A1D4EF67800C10A66 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				041641431D4F405D00C10A66 /* YzDetailViewDataProvider.h */,
+				041641441D4F405D00C10A66 /* YzDetailViewDataProvider.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0416413B1D4EF69000C10A66 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0416413C1D4EF69000C10A66 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0416413D1D4EF69000C10A66 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		3B685CBE1CD74A20000290C1 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,26 +222,12 @@
 		3B685CC21CD74A20000290C1 /* LeftView */ = {
 			isa = PBXGroup;
 			children = (
-				3B685CCA1CD74ACB000290C1 /* Model */,
-				3B685CCB1CD74ACB000290C1 /* View */,
+				0416413B1D4EF69000C10A66 /* Model */,
+				0416413C1D4EF69000C10A66 /* View */,
+				0416413D1D4EF69000C10A66 /* ViewModel */,
 				3B685CCC1CD74ACB000290C1 /* ViewController */,
-				3B685CD01CD74ACB000290C1 /* ViewModel */,
 			);
 			path = LeftView;
-			sourceTree = "<group>";
-		};
-		3B685CCA1CD74ACB000290C1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		3B685CCB1CD74ACB000290C1 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		3B685CCC1CD74ACB000290C1 /* ViewController */ = {
@@ -169,13 +238,6 @@
 				3B685CCF1CD74ACB000290C1 /* YzLeftViewController.xib */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		3B685CD01CD74ACB000290C1 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		3B685CD31CD74AE1000290C1 /* Model */ = {
@@ -226,6 +288,7 @@
 		3B9E11A41CB25F2300A66AC7 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				041641321D4EF5A500C10A66 /* Detail */,
 				3B685CBE1CD74A20000290C1 /* HomeView */,
 				3B685CC21CD74A20000290C1 /* LeftView */,
 				3BED77361CCB6D0300770074 /* Main */,
@@ -432,7 +495,6 @@
 				TargetAttributes = {
 					3BEF370C1CA5826800DF219F = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = T6W928N7KC;
 					};
 					3BEF37251CA5826800DF219F = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -476,6 +538,7 @@
 				3BEF37201CA5826800DF219F /* LaunchScreen.storyboard in Resources */,
 				3BEF371D1CA5826800DF219F /* Assets.xcassets in Resources */,
 				3BEF371B1CA5826800DF219F /* Main.storyboard in Resources */,
+				041641421D4F320E00C10A66 /* YzDetailViewController.xib in Resources */,
 				3B685D2D1CDCF921000290C1 /* YzHomeTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,6 +612,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041641481D5091DA00C10A66 /* YzDetailViewModel.m in Sources */,
+				041641411D4F320E00C10A66 /* YzDetailViewController.m in Sources */,
+				041641451D4F405D00C10A66 /* YzDetailViewDataProvider.m in Sources */,
 				3B685D251CDCF8A6000290C1 /* YzHomeViewDataProvider.m in Sources */,
 				3B685D281CDCF8FD000290C1 /* YzHomeStoryModel.m in Sources */,
 				3BED77351CC925EA00770074 /* YzHttpOperation.m in Sources */,
@@ -558,6 +624,7 @@
 				3BB756901CDF4E9B00B410C8 /* YzHomeTopStoriesView.m in Sources */,
 				3BED77341CC925EA00770074 /* UIView+Extension.m in Sources */,
 				3BEF37151CA5826800DF219F /* YzAppDelegate.m in Sources */,
+				0487385D1D50ACF4007F6DED /* YzRecommenderModel.m in Sources */,
 				3B685D1E1CD8F07D000290C1 /* YzCustomNavView.m in Sources */,
 				3B685CD11CD74ACB000290C1 /* YzLeftViewController.m in Sources */,
 				3BEF37121CA5826800DF219F /* main.m in Sources */,
@@ -704,6 +771,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/DailyTreasure/Common/YzPrefixHeader.pch";
 				INFOPLIST_FILE = DailyTreasure/Info.plist;
@@ -722,6 +790,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/DailyTreasure/Common/YzPrefixHeader.pch";
 				INFOPLIST_FILE = DailyTreasure/Info.plist;

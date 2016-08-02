@@ -7,7 +7,7 @@
 //
 
 
-#define kHomeTopStoriesViewHeight 300
+#define kHomeTopStoriesViewHeight 200
 
 #import <UIKit/UIKit.h>
 #import "YzHomeViewDataProvider.h"

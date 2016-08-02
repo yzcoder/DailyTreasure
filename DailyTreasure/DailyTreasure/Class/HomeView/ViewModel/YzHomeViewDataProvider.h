@@ -38,6 +38,8 @@
 
 - (NSURL *)homeCellImageURL;
 
+- (NSString *)homeCellStoryID;
+
 - (BOOL)isMultipic;
 
 - (BOOL)isTitleWithoutImage;
@@ -49,5 +51,6 @@
 -(instancetype)initWithDictionary:(NSDictionary *)dict ;
 - (NSString *)topStoryTitle ;
 - (NSURL *)topImageURL ;
+- (NSString *)topStoryID;
 @end
 

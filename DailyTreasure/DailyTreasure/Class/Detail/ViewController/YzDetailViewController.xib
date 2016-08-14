@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -16,15 +16,108 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nhi-N4-i9D">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nhi-N4-i9D">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                 </webView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eqp-4Y-5dt">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iO-wF-z7w">
+                            <rect key="frame" x="0.0" y="0.0" width="75" height="44"/>
+                            <state key="normal" image="News_Navigation_Arrow"/>
+                            <state key="highlighted" image="News_Navigation_Arrow_Highlight"/>
+                            <connections>
+                                <action selector="backAction:" destination="-1" eventType="touchUpInside" id="J81-Bu-wWH"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GRl-dT-cDE">
+                            <rect key="frame" x="75" y="0.0" width="75" height="44"/>
+                            <state key="normal" image="News_Navigation_Next"/>
+                            <state key="highlighted" image="News_Navigation_Next_Highlight"/>
+                            <connections>
+                                <action selector="nextAction:" destination="-1" eventType="touchUpInside" id="C7Y-J8-luY"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMn-RQ-es0">
+                            <rect key="frame" x="150" y="0.0" width="75" height="44"/>
+                            <state key="normal" image="News_Navigation_Vote"/>
+                            <state key="selected" image="News_Navigation_Voted"/>
+                            <connections>
+                                <action selector="favoriteAction:" destination="-1" eventType="touchUpInside" id="NHm-5q-9q7"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7R7-kW-tR7">
+                            <rect key="frame" x="225" y="0.0" width="75" height="44"/>
+                            <state key="normal" image="News_Navigation_Share"/>
+                            <state key="highlighted" image="News_Navigation_Share_Highlight"/>
+                            <connections>
+                                <action selector="shareAction:" destination="-1" eventType="touchUpInside" id="bgV-bC-ayK"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7O-jb-WOv">
+                            <rect key="frame" x="300" y="0.0" width="75" height="44"/>
+                            <state key="normal" image="News_Navigation_Comment"/>
+                            <state key="highlighted" image="News_Navigation_Comment_Highlight"/>
+                            <connections>
+                                <action selector="commentAction:" destination="-1" eventType="touchUpInside" id="aDm-eo-ByI"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="O7O-jb-WOv" firstAttribute="width" secondItem="5iO-wF-z7w" secondAttribute="width" id="3p9-vk-lab"/>
+                        <constraint firstItem="GRl-dT-cDE" firstAttribute="leading" secondItem="5iO-wF-z7w" secondAttribute="trailing" id="7If-xv-ubO"/>
+                        <constraint firstItem="LMn-RQ-es0" firstAttribute="width" secondItem="5iO-wF-z7w" secondAttribute="width" id="DZV-qW-unz"/>
+                        <constraint firstItem="GRl-dT-cDE" firstAttribute="width" secondItem="5iO-wF-z7w" secondAttribute="width" id="EyK-za-LRS"/>
+                        <constraint firstItem="7R7-kW-tR7" firstAttribute="leading" secondItem="LMn-RQ-es0" secondAttribute="trailing" id="FFM-62-QRo"/>
+                        <constraint firstAttribute="trailing" secondItem="O7O-jb-WOv" secondAttribute="trailing" id="FJZ-qa-Db6"/>
+                        <constraint firstAttribute="bottom" secondItem="LMn-RQ-es0" secondAttribute="bottom" id="LgR-4m-Mqs"/>
+                        <constraint firstItem="LMn-RQ-es0" firstAttribute="leading" secondItem="GRl-dT-cDE" secondAttribute="trailing" id="OT4-3B-W1j"/>
+                        <constraint firstAttribute="height" constant="44" id="R4d-Eo-oOr"/>
+                        <constraint firstItem="GRl-dT-cDE" firstAttribute="top" secondItem="Eqp-4Y-5dt" secondAttribute="top" id="UCD-wE-OKi"/>
+                        <constraint firstItem="7R7-kW-tR7" firstAttribute="top" secondItem="Eqp-4Y-5dt" secondAttribute="top" id="UMa-Ri-fM8"/>
+                        <constraint firstItem="7R7-kW-tR7" firstAttribute="width" secondItem="5iO-wF-z7w" secondAttribute="width" id="VRV-VS-zwK"/>
+                        <constraint firstAttribute="bottom" secondItem="O7O-jb-WOv" secondAttribute="bottom" id="WaP-up-gbG"/>
+                        <constraint firstItem="5iO-wF-z7w" firstAttribute="leading" secondItem="Eqp-4Y-5dt" secondAttribute="leading" id="Wo6-vV-ojn"/>
+                        <constraint firstItem="LMn-RQ-es0" firstAttribute="leading" secondItem="GRl-dT-cDE" secondAttribute="trailing" id="XSl-t9-Nw6"/>
+                        <constraint firstItem="LMn-RQ-es0" firstAttribute="top" secondItem="Eqp-4Y-5dt" secondAttribute="top" id="YOv-HW-eEm"/>
+                        <constraint firstAttribute="bottom" secondItem="5iO-wF-z7w" secondAttribute="bottom" id="Zey-D0-W3J"/>
+                        <constraint firstItem="5iO-wF-z7w" firstAttribute="top" secondItem="Eqp-4Y-5dt" secondAttribute="top" id="gmx-zb-Uin"/>
+                        <constraint firstItem="O7O-jb-WOv" firstAttribute="top" secondItem="Eqp-4Y-5dt" secondAttribute="top" id="hXg-XW-acd"/>
+                        <constraint firstAttribute="bottom" secondItem="GRl-dT-cDE" secondAttribute="bottom" id="lwI-2Q-jV1"/>
+                        <constraint firstAttribute="bottom" secondItem="7R7-kW-tR7" secondAttribute="bottom" id="mn7-OK-Nro"/>
+                        <constraint firstItem="O7O-jb-WOv" firstAttribute="leading" secondItem="7R7-kW-tR7" secondAttribute="trailing" id="sPQ-eE-e3w"/>
+                        <constraint firstItem="O7O-jb-WOv" firstAttribute="leading" secondItem="7R7-kW-tR7" secondAttribute="trailing" id="xbr-JG-iFb"/>
+                        <constraint firstItem="7R7-kW-tR7" firstAttribute="leading" secondItem="LMn-RQ-es0" secondAttribute="trailing" id="zCH-O5-boD"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Eqp-4Y-5dt" secondAttribute="bottom" id="2gi-2i-SA9"/>
+                <constraint firstAttribute="trailing" secondItem="Eqp-4Y-5dt" secondAttribute="trailing" id="4yS-XV-yI3"/>
+                <constraint firstItem="Eqp-4Y-5dt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5lW-5r-dDt"/>
+                <constraint firstItem="Nhi-N4-i9D" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EZn-Ro-pmd"/>
+                <constraint firstAttribute="trailing" secondItem="Nhi-N4-i9D" secondAttribute="trailing" id="pf8-r4-5qJ"/>
+                <constraint firstItem="Nhi-N4-i9D" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sNX-xe-MwC"/>
+                <constraint firstItem="Eqp-4Y-5dt" firstAttribute="top" secondItem="Nhi-N4-i9D" secondAttribute="bottom" id="w7a-71-bx4"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="374.5" y="327.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="News_Navigation_Arrow" width="64" height="43"/>
+        <image name="News_Navigation_Arrow_Highlight" width="64" height="43"/>
+        <image name="News_Navigation_Comment" width="64" height="43"/>
+        <image name="News_Navigation_Comment_Highlight" width="64" height="43"/>
+        <image name="News_Navigation_Next" width="64" height="43"/>
+        <image name="News_Navigation_Next_Highlight" width="64" height="43"/>
+        <image name="News_Navigation_Share" width="64" height="43"/>
+        <image name="News_Navigation_Share_Highlight" width="64" height="43"/>
+        <image name="News_Navigation_Vote" width="64" height="43"/>
+        <image name="News_Navigation_Voted" width="64" height="43"/>
+    </resources>
 </document>

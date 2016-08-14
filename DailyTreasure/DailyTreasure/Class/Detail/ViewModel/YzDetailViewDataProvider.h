@@ -20,5 +20,7 @@
 
 - (RACSignal *)getStoryDetial;
 
+- (NSString *)detailHTMLString;
 
+- (NSURL *)topImageURL;
 @end

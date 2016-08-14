@@ -93,6 +93,15 @@
     [self loadPage];
 }
 
+-(void)setIsTimeFire:(BOOL)isTimeFire {
+    if (isTimeFire) {
+        //开启定时器
+        [self.timer setFireDate:[NSDate distantPast]];
+        return;
+    }    
+    //关闭定时器
+    [self.timer setFireDate:[NSDate distantFuture]];
+}
 #pragma mark - 页面逻辑 -
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -178,13 +187,18 @@
 
 }
 
+-(void)dealloc {
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
 @end
 
 
 @interface StoryView ()
 
 @property (nonatomic, weak) UILabel *titleLabel;
-
+@property (nonatomic, weak) UIImageView *imageView;
 @end
 
 @implementation StoryView

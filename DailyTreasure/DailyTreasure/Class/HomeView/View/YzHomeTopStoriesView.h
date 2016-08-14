@@ -15,11 +15,13 @@
 @interface YzHomeTopStoriesView : UIView
 @property (nonatomic, strong) NSArray <YzHomeTopDataProvider *>*topstoriesModels;
 
+@property (nonatomic, assign) BOOL isTimeFire;
+
 @end
 
 @interface StoryView : UIView
 
-@property (nonatomic, weak) UIImageView *imageView;
+
 @property (nonatomic, copy) NSURL *imageURL;
 @property (nonatomic, copy) NSString *title;
 

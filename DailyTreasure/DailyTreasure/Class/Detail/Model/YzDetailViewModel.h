@@ -23,7 +23,7 @@
 /**< 新闻的 id*/
 @property (nonatomic, copy) NSString *storyid;
 /**< 供手机端的 WebView(UIWebView) 使用*/
-@property (nonatomic, copy) NSString *css;
+@property (nonatomic, strong) NSArray *css;
 /**推荐者*/
 @property (nonatomic,strong) NSArray<YzRecommenderModel *> *recommenders;
 /**html  供手机端的 WebView(UIWebView) 使用*/

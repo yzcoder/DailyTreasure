@@ -101,7 +101,7 @@
 //    self.topStoryView.clipsToBounds = YES;
     [self.homeTableView addSubview:self.topStoryView];
     
-
+    
     
     
 
@@ -122,6 +122,14 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    self.topStoryView.isTimeFire = YES;
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    self.topStoryView.isTimeFire = NO;
 }
 
 
